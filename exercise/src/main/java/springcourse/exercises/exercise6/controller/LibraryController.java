@@ -53,7 +53,7 @@ public class LibraryController {
 
     // TODO Restify method (add appropriate annotations)
     // TODO NOTICE that the author is passed via url param
-    // TODO        for example the url to this method might be: http://localhost:9090/books?author=Lewis Carroll
+    // TODO        for example the url to this method might be: http://localhost:8080/books?author=Lewis Carroll
     public Collection<Book> readBooksByAuthor(String author) {
         logger.info("Request to read all books by author {}", author);
         Collection<Book> books = library.searchBooksByAuthor(author);
