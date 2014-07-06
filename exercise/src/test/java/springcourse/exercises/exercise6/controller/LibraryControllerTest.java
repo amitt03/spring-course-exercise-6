@@ -1,4 +1,4 @@
-package springcourse.exercises.exercise6;
+package springcourse.exercises.exercise6.controller;
 
 import com.google.gson.Gson;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package springcourse.exercises.exercise6.remote;
+package springcourse.exercises.exercise6.controller.remote;
 
 import org.junit.Assert;
 import org.junit.Before;
