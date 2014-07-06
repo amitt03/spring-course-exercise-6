@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>springcourse</groupId>
     <artifactId>exercise6</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>Exercise 6</name>
     <version>1.0.0</version>
 
