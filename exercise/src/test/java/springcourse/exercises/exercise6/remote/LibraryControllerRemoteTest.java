@@ -20,7 +20,7 @@ public class LibraryControllerRemoteTest {
 
     private Logger logger = LoggerFactory.getLogger(LibraryControllerRemoteTest.class);
 
-    private final String baseUrl = "http://localhost:9090/";
+    private final String baseUrl = "http://localhost:8080/";
 
     private RestTemplate restTemplate;
 
