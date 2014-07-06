@@ -1,4 +1,4 @@
-package springcourse.exercises.exercise6.remote;
+package springcourse.solutions.exercise6.remote;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
-import springcourse.exercises.exercise6.model.Book;
+import springcourse.solutions.exercise6.model.Book;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -31,7 +31,7 @@ public class LibraryControllerRemoteTest {
     }
 
     @Test
-    @Ignore
+    //@Ignore
     public void testHappyFlow() {
 
         // Read initial library books
@@ -78,17 +78,14 @@ public class LibraryControllerRemoteTest {
     }
 
     private Book createBook() {
-        // TODO Implement method, including sending the request to the server
-        // TODO Implement method, including sending the request to the server
-        // TODO Implement method, including sending the request to the server
-        return null;
+        Book book = new Book("Spring in action 3rd edition", "Craig Walls");
+        Book response = restTemplate.postForObject(baseUrl + "/books", book, Book.class);
+        return response;
     }
 
     private Collection<Book> readBooksByAuthor(String author) {
-        // TODO Implement method, including sending the request to the server
-        // TODO Implement method, including sending the request to the server
-        // TODO Implement method, including sending the request to the server
-        return null;
+        Book[] response = restTemplate.getForObject(baseUrl + "/books?author={author}", Book[].class, author);
+        return Arrays.asList(response);
     }
 
     private void deleteBook(String catalogId) {

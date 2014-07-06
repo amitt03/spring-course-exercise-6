@@ -1,12 +1,12 @@
-package springcourse.exercises.exercise6.controller;
+package springcourse.solutions.exercise6.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import springcourse.exercises.exercise6.model.Book;
-import springcourse.exercises.exercise6.service.api.ILibrary;
+import springcourse.solutions.exercise6.model.Book;
+import springcourse.solutions.exercise6.service.api.ILibrary;
 
 import java.util.Collection;
 
@@ -14,8 +14,8 @@ import java.util.Collection;
  * @author Amit Tal
  * @since 4/6/14
  */
-// TODO Add proper spring bean stereotype
-// TODO Add url mapping so all the methods in this controller urls will start with "/books"
+@RestController
+@RequestMapping(value = "/books", produces = "application/json")
 public class LibraryController {
 
     private Logger logger = LoggerFactory.getLogger(LibraryController.class);
@@ -36,8 +36,9 @@ public class LibraryController {
         return result;
     }
 
-    // TODO Restify method (add appropriate annotations)
-    public void deleteBook(String catalogId) {
+    @RequestMapping(value = "/{catalogId}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBook(@PathVariable String catalogId) {
         logger.info("Request to delete book {}", catalogId);
         library.removeBook(catalogId);
         logger.info("Book {} deleted", catalogId);
@@ -51,10 +52,8 @@ public class LibraryController {
         return allBooks;
     }
 
-    // TODO Restify method (add appropriate annotations)
-    // TODO NOTICE that the author is passed via url param
-    // TODO        for example the url to this method might be: http://localhost:8080/books?author=Lewis Carroll
-    public Collection<Book> readBooksByAuthor(String author) {
+    @RequestMapping(method = RequestMethod.GET, params = "author")
+    public Collection<Book> readBooksByAuthor(@RequestParam String author) {
         logger.info("Request to read all books by author {}", author);
         Collection<Book> books = library.searchBooksByAuthor(author);
         logger.info("read {} books by author {}", (books == null ? 0 : books.size()), author);

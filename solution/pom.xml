@@ -5,9 +5,9 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>springcourse</groupId>
-    <artifactId>exercise6</artifactId>
+    <artifactId>exercise6-solution</artifactId>
     <packaging>war</packaging>
-    <name>Exercise 6</name>
+    <name>Exercise 6 Solution</name>
     <version>1.0.0</version>
 
     <properties>
