@@ -38,10 +38,6 @@ public class LibraryControllerTest {
 
     private Gson gson;
 
-    public LibraryControllerTest() {
-        super();
-    }
-
     @Before
     public void setup() {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
